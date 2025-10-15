@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - E-Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet">
+  <script src="cart.js"></script>
+</head>
+<body>
+
+  <!-- background and hero handled by styles.css -->
+
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <i class="fas fa-bolt me-2 brand-bolt"></i>
+        HeartSpark
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="bootstrap.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">🛒 Cart <span id="cartCounter" class="badge bg-warning text-dark"></span></a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login/Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="text-center text-white py-5 page-header">
+    <div class="container">
+      <h1 class="display-4">Contact Us</h1>
+    </div>
+  </header>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow">
+            <div class="card-body">
+              <h2 class="card-title mb-3">Get in Touch</h2>
+              <form id="contactForm">
+                <div class="mb-3">
+                  <label for="contactName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="contactName" placeholder="Your name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="contactEmail" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="contactEmail" placeholder="Your email" required>
+                </div>
+                <div class="mb-3">
+                  <label for="contactMessage" class="form-label">Message</label>
+                  <textarea class="form-control" id="contactMessage" rows="3" placeholder="Type your message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+                <div id="formFeedback" class="mt-3"></div>
+              </form>
+
+              <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="successModalLabel">Your message has been sent!</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- <div class="modal-body text-center">
+                      Thank you for your support!
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <h5>Contact Information</h5>
+              <ul class="list-unstyled">
+                <li><strong>Email:</strong> online@heartspark.com</li>
+                <li><strong>Phone:</strong> +1 234 567 8900</li>
+                <li><strong>Address:</strong> 123 Sagilid St, Underground City</li>
+              </ul>
+              <div class="mt-3">
+                <iframe class="map-iframe" src="https://www.openstreetmap.org/export/embed.html?bbox=120.9842%2C14.5995%2C120.9842%2C14.5995&amp;layer=mapnik" allowfullscreen="" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">Edited by: Arabaca & Vallejera</p>
+  </footer> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<!-- Login/Register Modals and Scripts -->
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm" autocomplete="off">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3 position-relative">
+            <label for="loginPassword" class="form-label">Password</label>
+            <div class="input-group">
+              <span class="input-group-text password-toggle" id="togglePassword">
+                <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z"/>
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                </svg>
+              </span>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required aria-describedby="togglePassword">
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+          </div>
+          <div class="text-center">
+            <a href="#" id="loginTextLink">Create an Account?</a>
+          </div>
+          <div id="loginFeedback" class="mt-2"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Create Account</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="registerForm" autocomplete="off">
+          <div class="mb-3">
+            <label for="registerFirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="registerFirstName" placeholder="e.g. Juan Miguel" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerLastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="registerLastName" placeholder="e.g. DelaCruz" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="registerAddress" placeholder="e.g. 123 Main St" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerContact" class="form-label">Contact</label>
+            <div class="input-group">
+              <span class="input-group-text">+63</span>
+              <input type="text" class="form-control" id="registerContact" placeholder="9123456789" maxlength="10" required>
+            </div>
+          </div>
+          <div class="mb-3 position-relative">
+            <label for="registerPassword" class="form-label">Password</label>
+            <div class="input-group">
+              <span class="input-group-text password-toggle" id="toggleRegisterPassword">
+                <svg id="registerEyeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z"/>
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                </svg>
+              </span>
+              <input type="password" class="form-control" id="registerPassword" placeholder="Enter password" required aria-describedby="toggleRegisterPassword">
+            </div>
+          </div>
+          <div class="mb-3 position-relative">
+            <label for="registerRetypePassword" class="form-label">Retype Password</label>
+            <div class="input-group">
+              <span class="input-group-text password-toggle" id="toggleRegisterRetypePassword">
+                <svg id="registerRetypeEyeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z"/>
+                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>
+                </svg>
+              </span>
+              <input type="password" class="form-control" id="registerRetypePassword" placeholder="Retype password" required aria-describedby="toggleRegisterRetypePassword">
+            </div>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-success w-100">Create</button>
+          </div>
+          <div id="registerFeedback" class="mt-2"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Toggle password visibility
+  $('#togglePassword').on('click', function() {
+    var $password = $('#loginPassword');
+    var type = $password.attr('type') === 'password' ? 'text' : 'password';
+    $password.attr('type', type);
+    // Toggle eye icon
+    var $icon = $('#eyeIcon');
+    if (type === 'text') {
+      $icon.html('<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/><path d="M2.354 2.354a.5.5 0 1 1 .707.707l11.293 11.293a.5.5 0 0 1-.707.707l-1.397-1.397C10.12 12.5 8 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8c.058-.087.122-.183.195-.288.335-.48.83-1.12 1.465-1.755L2.354 2.354z"/>');
+    } else {
+      $icon.html('<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/>');
+    }
+  });
+
+  // Switch to Register modal, always hide all modals first
+  $('#loginTextLink').on('click', function(e) {
+    e.preventDefault();
+    $('.modal').modal('hide'); // Hide any open modal
+    // Show register modal after a short delay to ensure all are hidden
+    setTimeout(function() {
+      $('#registerModal').modal('show');
+    }, 300);
+  });
+
+  // Remove any lingering modal backdrops when any modal is hidden
+  $('.modal').on('hidden.bs.modal', function () {
+    $('.modal-backdrop').remove();
+    $('body').removeClass('modal-open');
+    $('body').css('padding-right', '');
+  });
+
+  // Email validation (same as contact.html)
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  $('#loginForm').on('submit', function(e) {
+    var email = $('#loginEmail').val().trim();
+    var password = $('#loginPassword').val();
+    var valid = true;
+    $('#loginFeedback').hide();
+    $('#loginEmail, #loginPassword').removeClass('is-invalid');
+
+    if (!isValidEmail(email)) {
+      $('#loginEmail').addClass('is-invalid');
+      $('#loginFeedback').text('Please enter a valid email.').css('color', 'red').show();
+      valid = false;
+    }
+    if (password.length < 6) {
+      $('#loginPassword').addClass('is-invalid');
+      $('#loginFeedback').text('Password must be at least 6 characters.').css('color', 'red').show();
+      valid = false;
+    }
+    if (!valid) {
+      e.preventDefault();
+      return;
+    }
+    // Simulate login success
+    $('#loginFeedback').text('Login successful!').css('color', 'green').show();
+    e.preventDefault();
+    setTimeout(function() {
+      $('#loginModal').modal('hide');
+      $('#loginForm')[0].reset();
+      $('#loginFeedback').hide();
+    }, 1200);
+  });
+
+  // Remove invalid class on input
+  $('#loginEmail, #loginPassword').on('input', function() {
+    $(this).removeClass('is-invalid');
+    $('#loginFeedback').hide();
+  });
+
+  // Register form validation
+  function isValidNameSpaces(str) {
+    // Allows multiple words, only single spaces between, no leading/trailing spaces
+    return /^([A-Za-z]+)( [A-Za-z]+)*$/.test(str.trim());
+  }
+  function isValidNoSpace(str) {
+    // No spaces allowed
+    return /^[A-Za-z]+$/.test(str.trim());
+  }
+  function isValidAddress(str) {
+    // Allows multiple words, only single spaces between, no leading/trailing spaces
+    return /^([A-Za-z0-9.,#\-]+)( [A-Za-z0-9.,#\-]+)*$/.test(str.trim());
+  }
+  function isValidContact(str) {
+    // Must be exactly 10 digits
+    return /^\d{10}$/.test(str);
+  }
+
+  $('#registerForm').on('submit', function(e) {
+    var valid = true;
+    var firstName = $('#registerFirstName').val().trim();
+    var lastName = $('#registerLastName').val().trim();
+    var address = $('#registerAddress').val().trim();
+    var email = $('#registerEmail').val().trim();
+    var contact = $('#registerContact').val().trim();
+    var password = $('#registerPassword').val();
+    var retype = $('#registerRetypePassword').val();
+    $('#registerFeedback').hide();
+    $('#registerForm .form-control').removeClass('is-invalid');
+
+    // First Name
+    if (!isValidNameSpaces(firstName)) {
+      $('#registerFirstName').addClass('is-invalid');
+      $('#registerFeedback').text('First name: Only letters, single spaces between words, no leading/trailing spaces.').css('color','red').show();
+      valid = false;
+    }
+    // Last Name
+    if (!isValidNoSpace(lastName)) {
+      $('#registerLastName').addClass('is-invalid');
+      $('#registerFeedback').text('Last name: Only letters, no spaces allowed.').css('color','red').show();
+      valid = false;
+    }
+    // Address
+    if (!isValidAddress(address)) {
+      $('#registerAddress').addClass('is-invalid');
+      $('#registerFeedback').text('Address: Only single spaces between words, no leading/trailing spaces.').css('color','red').show();
+      valid = false;
+    }
+    // Email
+    if (!isValidEmail(email)) {
+      $('#registerEmail').addClass('is-invalid');
+      $('#registerFeedback').text('Please enter a valid email.').css('color','red').show();
+      valid = false;
+    }
+    // Contact
+    if (!isValidContact(contact)) {
+      $('#registerContact').addClass('is-invalid');
+      $('#registerFeedback').text('Contact: Must be exactly 10 digits after +63.').css('color','red').show();
+      valid = false;
+    }
+    // Password
+    if (password.length < 6) {
+      $('#registerPassword').addClass('is-invalid');
+      $('#registerFeedback').text('Password must be at least 6 characters.').css('color','red').show();
+      valid = false;
+    }
+    // Retype Password
+    if (retype !== password || retype.length < 6) {
+      $('#registerRetypePassword').addClass('is-invalid');
+      $('#registerFeedback').text('Retype password must match password.').css('color','red').show();
+      valid = false;
+    }
+    if (!valid) {
+      e.preventDefault();
+      return;
+    }
+    // Simulate register success
+    $('#registerFeedback').text('Account created!').css('color','green').show();
+    e.preventDefault();
+    setTimeout(function() {
+      $('#registerModal').modal('hide');
+      $('#registerForm')[0].reset();
+      $('#registerFeedback').hide();
+    }, 1200);
+  });
+
+  // Remove invalid class on input for register
+  $('#registerForm .form-control').on('input', function() {
+    $(this).removeClass('is-invalid');
+    $('#registerFeedback').hide();
+  });
+
+  // Ensure register modal resets form and feedback on close (including X button)
+  $('#registerModal').on('hidden.bs.modal', function () {
+    $('#registerForm')[0].reset();
+    $('#registerForm .form-control').removeClass('is-invalid');
+    $('#registerFeedback').hide();
+  });
+});
+</script>
+
+
+
+<!-- jQuery  -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+
+$(document).ready(function() {
+  function isValidName(name) {
+    // Check if name has leading or trailing spaces
+    if (name !== name.trim()) return false;
+    return /^([A-Za-z]+\.?)( [A-Za-z]+\.?)*$/.test(name);
+  }
+
+  $('#contactName').on('blur', function() {
+    var originalValue = $(this).val();
+    var trimmedValue = originalValue.trim();
+    
+    if (originalValue !== trimmedValue) {
+      $(this).val(trimmedValue);
+      $(this).trigger('input');
+    }
+  });
+
+  $('#contactForm').on('submit', function(e) {
+    var $nameInput = $('#contactName');
+    var name = $nameInput.val();
+    
+    if (name !== name.trim()) {
+      e.preventDefault();
+      $('#formFeedback').text('Name cannot have leading or trailing spaces.').css('color', 'red').show();
+      $nameInput.addClass('is-invalid');
+      return;
+    }
+    
+    if (!isValidName(name)) {
+      e.preventDefault();
+      $('#formFeedback').text('Please enter a valid name.').css('color', 'red').show();
+      $nameInput.addClass('is-invalid');
+      return;
+    } else {
+      $('#formFeedback').hide();
+      $nameInput.removeClass('is-invalid');
+    }
+
+    // Rest of your validation code for email and message...
+    var email = $('#contactEmail').val().trim();
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === '' || !emailPattern.test(email)) {
+      e.preventDefault();
+      $('#formFeedback').text('Please enter a valid email address.').css('color', 'red').show();
+      $('#contactEmail').addClass('is-invalid');
+      return;
+    } else {
+      $('#contactEmail').removeClass('is-invalid');
+    }
+
+    var message = $('#contactMessage').val().trim();
+    if (message === '') {
+      e.preventDefault();
+      $('#formFeedback').text('Please enter your message.').css('color', 'red').show();
+      $('#contactMessage').addClass('is-invalid');
+      return;
+    } else {
+      $('#contactMessage').removeClass('is-invalid');
+    }
+
+    e.preventDefault();
+    var modal = new bootstrap.Modal(document.getElementById('successModal'));
+    modal.show();
+    
+    $('#contactForm')[0].reset();
+  });
+
+  $('#contactName').on('input', function() {
+    var name = $(this).val();
+    if ((name !== name.trim() || !isValidName(name)) && name.length > 0) {
+      $(this).addClass('is-invalid');
+    } else {
+      $(this).removeClass('is-invalid');
+    }
+  });
+});
+</script>
+</body>
+</html>
