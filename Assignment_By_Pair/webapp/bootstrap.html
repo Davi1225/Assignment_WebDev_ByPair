@@ -276,12 +276,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
   $(document).ready(function() {
-    // Toggle password visibility
+    // password visibility
     $('#togglePassword').on('click', function() {
       var $password = $('#loginPassword');
       var type = $password.attr('type') === 'password' ? 'text' : 'password';
       $password.attr('type', type);
-      // Toggle eye icon
+      // eye icons
       var $icon = $('#eyeIcon');
       if (type === 'text') {
         $icon.html('<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/><path d="M2.354 2.354a.5.5 0 1 1 .707.707l11.293 11.293a.5.5 0 0 1-.707.707l-1.397-1.397C10.12 12.5 8 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8c.058-.087.122-.183.195-.288.335-.48.83-1.12 1.465-1.755L2.354 2.354z"/>');
@@ -290,13 +290,13 @@
       }
     });
 
-    // Switch to Register modal
+    // login to register link
     $('#loginTextLink').on('click', function(e) {
       e.preventDefault();
       $('#loginModal').modal('hide');
       setTimeout(function() {
         $('#registerModal').modal('show');
-      }, 400); // Wait for login modal to close
+      }, 400);
     });
 
     // Register modal password eye icon
@@ -323,7 +323,6 @@
       }
     });
 
-    // Email validation (same as contact.html)
     function isValidEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
@@ -349,7 +348,6 @@
         e.preventDefault();
         return;
       }
-      // Simulate login success
       $('#loginFeedback').text('Login successful!').css('color', 'green').show();
       e.preventDefault();
       setTimeout(function() {
@@ -359,27 +357,26 @@
       }, 1200);
     });
 
-    // Remove invalid class on input
     $('#loginEmail, #loginPassword').on('input', function() {
       $(this).removeClass('is-invalid');
       $('#loginFeedback').hide();
     });
 
-    // Register form validation
+  
     function isValidNameSpaces(str) {
-      // Allows multiple words, only single spaces between, no leading/trailing spaces
+      
       return /^([A-Za-z]+)( [A-Za-z]+)*$/.test(str.trim());
     }
     function isValidNoSpace(str) {
-      // No spaces allowed
+  
       return /^[A-Za-z]+$/.test(str.trim());
     }
     function isValidAddress(str) {
-      // Allows multiple words, only single spaces between, no leading/trailing spaces
+  
       return /^([A-Za-z0-9.,#\-]+)( [A-Za-z0-9.,#\-]+)*$/.test(str.trim());
     }
     function isValidContact(str) {
-      // Must be exactly 10 digits
+  
       return /^\d{10}$/.test(str);
     }
 
@@ -441,7 +438,7 @@
         e.preventDefault();
         return;
       }
-      // Simulate register success
+  
       $('#registerFeedback').text('Account created!').css('color','green').show();
       e.preventDefault();
       setTimeout(function() {
@@ -451,7 +448,7 @@
       }, 1200);
     });
 
-    // Remove invalid class on input for register
+  
     $('#registerForm .form-control').on('input', function() {
       $(this).removeClass('is-invalid');
       $('#registerFeedback').hide();

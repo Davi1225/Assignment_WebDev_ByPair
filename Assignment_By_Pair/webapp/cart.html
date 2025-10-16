@@ -10,9 +10,6 @@
 </head>
 <body>
 
-  <!-- background handled by styles.css -->
-
-
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -47,7 +44,7 @@
             <div class="card-body">
               <h2 class="card-title mb-3">Your Cart</h2>
               <div id="cartContent"></div>
-              <!-- Empty cart message (initially hidden) -->
+
               <div id="emptyCartMessage" class="alert alert-info text-center" style="display:none; color:#0a0a0a; background-color:#dff6ff; font-weight:600;">
                 The cart is empty
               </div>
@@ -66,14 +63,14 @@ function renderCart() {
   const cartContent = document.getElementById('cartContent');
   const emptyMsg = document.getElementById('emptyCartMessage');
   if (!cart.length) {
-    // Hide any table content and show the dedicated empty message so it's always visible
+
     cartContent.innerHTML = '';
     if (emptyMsg) {
       emptyMsg.style.display = 'block';
     }
     return;
   }
-  // If we have items, ensure empty message is hidden
+
   if (emptyMsg) emptyMsg.style.display = 'none';
   let rows = '';
   let grandTotal = 0;
@@ -117,7 +114,7 @@ function removeFromCartAndRender(id) {
   showCartFeedback('Item removed from cart.');
 }
 
-// Increment quantity handler
+
 function incrementQty(id) {
   const cart = getCart();
   const idx = cart.findIndex(item => item.id === id);
@@ -129,7 +126,7 @@ function incrementQty(id) {
   }
 }
 
-// Decrement quantity handler
+
 function decrementQty(id) {
   let cart = getCart();
   const idx = cart.findIndex(item => item.id === id);
@@ -260,12 +257,10 @@ window.addEventListener('DOMContentLoaded', renderCart);
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 $(document).ready(function() {
-  // Toggle password visibility
   $('#togglePassword').on('click', function() {
     var $password = $('#loginPassword');
     var type = $password.attr('type') === 'password' ? 'text' : 'password';
     $password.attr('type', type);
-    // Toggle eye icon
     var $icon = $('#eyeIcon');
     if (type === 'text') {
       $icon.html('<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.12 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm0 1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/><path d="M2.354 2.354a.5.5 0 1 1 .707.707l11.293 11.293a.5.5 0 0 1-.707.707l-1.397-1.397C10.12 12.5 8 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.133 13.133 0 0 1 1.172 8c.058-.087.122-.183.195-.288.335-.48.83-1.12 1.465-1.755L2.354 2.354z"/>');
@@ -274,24 +269,20 @@ $(document).ready(function() {
     }
   });
 
-  // Switch to Register modal, always hide all modals first
   $('#loginTextLink').on('click', function(e) {
     e.preventDefault();
-    $('.modal').modal('hide'); // Hide any open modal
-    // Show register modal after a short delay to ensure all are hidden
+    $('.modal').modal('hide'); 
     setTimeout(function() {
       $('#registerModal').modal('show');
     }, 300);
   });
 
-  // Remove any lingering modal backdrops when any modal is hidden
   $('.modal').on('hidden.bs.modal', function () {
     $('.modal-backdrop').remove();
     $('body').removeClass('modal-open');
     $('body').css('padding-right', '');
   });
 
-  // Email validation (same as contact.html)
   function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
@@ -317,7 +308,6 @@ $(document).ready(function() {
       e.preventDefault();
       return;
     }
-    // Simulate login success
     $('#loginFeedback').text('Login successful!').css('color', 'green').show();
     e.preventDefault();
     setTimeout(function() {
@@ -327,27 +317,21 @@ $(document).ready(function() {
     }, 1200);
   });
 
-  // Remove invalid class on input
   $('#loginEmail, #loginPassword').on('input', function() {
     $(this).removeClass('is-invalid');
     $('#loginFeedback').hide();
   });
 
-  // Register form validation
   function isValidNameSpaces(str) {
-    // Allows multiple words, only single spaces between, no leading/trailing spaces
     return /^([A-Za-z]+)( [A-Za-z]+)*$/.test(str.trim());
   }
   function isValidNoSpace(str) {
-    // No spaces allowed
     return /^[A-Za-z]+$/.test(str.trim());
   }
   function isValidAddress(str) {
-    // Allows multiple words, only single spaces between, no leading/trailing spaces
     return /^([A-Za-z0-9.,#\-]+)( [A-Za-z0-9.,#\-]+)*$/.test(str.trim());
   }
   function isValidContact(str) {
-    // Must be exactly 10 digits
     return /^\d{10}$/.test(str);
   }
 
@@ -409,7 +393,6 @@ $(document).ready(function() {
       e.preventDefault();
       return;
     }
-    // Simulate register success
     $('#registerFeedback').text('Account created!').css('color','green').show();
     e.preventDefault();
     setTimeout(function() {
@@ -419,13 +402,11 @@ $(document).ready(function() {
     }, 1200);
   });
 
-  // Remove invalid class on input for register
   $('#registerForm .form-control').on('input', function() {
     $(this).removeClass('is-invalid');
     $('#registerFeedback').hide();
   });
 
-  // Ensure register modal resets form and feedback on close (including X button)
   $('#registerModal').on('hidden.bs.modal', function () {
     $('#registerForm')[0].reset();
     $('#registerForm .form-control').removeClass('is-invalid');
