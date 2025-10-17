@@ -1,5 +1,3 @@
-/* Bootstrap is loaded from CDN in the HTML. No local import here. */
-
 body {
     /* use game.jpg as the backmost background with a subtle dark overlay */
     background: linear-gradient(rgba(2,2,6,0.45), rgba(2,2,6,0.45)), url('images/purplegame.jpg') center/cover no-repeat fixed;
@@ -17,7 +15,7 @@ body {
     --darker-bg: #0f0f0f;
     --text-color: #ffffff;
     --card-bg: #1e1e1e;
-    --border-color: #2d2d2d;
+    --border-color: #604168;
     --neon-purple: #bb86fc;
     --neon-blue: #00bcd4;
     --hover-bg: #2a2a2a;
@@ -202,7 +200,7 @@ footer p { color: #d0d0d0; font-size: 0.92rem; }
 footer .btn-primary { background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border: none; box-shadow: 0 6px 18px rgba(108,92,231,0.12); }
 
 /* Footer subscribe input sizing */
-footer .input-group .form-control { background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgba(255,255,255,0.04); }
+footer .input-group .form-control { background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgb(120, 22, 218); }
 footer .input-group .btn { padding: 0.45rem 0.9rem; }
 
 /* subtle top divider */
@@ -262,16 +260,22 @@ footer hr { border-color: rgba(162,155,254,0.08); }
 textarea.form-control,
 select.form-control {
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgb(255, 255, 255);
     color: var(--text-color);
     box-shadow: none;
     transition: box-shadow 0.18s ease, border-color 0.18s ease;
+
 }
 .form-control:focus {
-    border-color: rgba(108,92,231,0.9);
+    border-color: rgb(108, 92, 231);
     box-shadow: 0 0 18px rgba(108,92,231,0.08);
     background: rgba(255,255,255,0.04);
     color: var(--text-color);
+}
+
+.form-control::placeholder {
+  color: rgba(240, 248, 255, 0.7); /* Light, translucent (AliceBlue) */
+  opacity: 1; /* Ensures color is not faded by default browser styles */
 }
 
 /* Active nav visual (stronger accent) */
